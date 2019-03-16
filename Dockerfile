@@ -18,6 +18,12 @@ USER $USERNAME
 
 WORKDIR /home/$USERNAME
 
+# Install nodebrew and NodeJS 8
+RUN curl -L git.io/nodebrew | perl - setup && \
+    /home/$USERNAME/.nodebrew/current/bin/nodebrew install-binary v8.15.0 && \
+    /home/$USERNAME/.nodebrew/current/bin/nodebrew use v8.15.0 && \
+    /bin/bash -l -c 'echo "export PATH=\$HOME/.nodebrew/current/bin:\$PATH" >> $HOME/.bashrc'
+
 # Prepare working directory
 WORKDIR /home/$USERNAME/project
 
