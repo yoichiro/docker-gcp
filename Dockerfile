@@ -29,7 +29,12 @@ WORKDIR /home/$USERNAME/project
 
 VOLUME /home/$USERNAME/project
 
-# Expose the port for Cloud Functions for Firebase on local
+# Expose the port for each service
 EXPOSE 5000
+EXPOSE 5001
+EXPOSE 4200
+EXPOSE 8080
+EXPOSE 8000
+EXPOSE 4000
 
 CMD ["/bin/bash"]
